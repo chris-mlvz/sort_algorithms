@@ -1,4 +1,5 @@
 import random
+import time
 
 # Selection Sort Algorithm
 def selectionSort(array):
@@ -17,14 +18,17 @@ def selectionSort(array):
         array[i], array[minIndex] = array[minIndex], array[i]
         # Counting the iterations and printing the array.
         iteration += 1
-        print(f'Iteration N° {iteration}: {array}, Changed position: {i}')
+        # print(f'Iteration N° {iteration}: {array}, Changed position: {i}')
 
 
 if __name__ == "__main__":
-    array = [i for i in range(10)]
+    array = [i for i in range(10000)]
     random.shuffle(array)
-    print(f'Original array: {array}')
+    # print(f'Original array: {array}')
+    start = time.time()
     selectionSort(array)
+    end = time.time()
+    print(end - start)
 
 
 def selectionSort2(array):

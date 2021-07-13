@@ -1,8 +1,10 @@
 void main(List<String> args) {
-  var array = List.generate(10, (index) => index);
+  var array = List.generate(100000, (index) => index);
   array.shuffle();
-  print('Original array: $array');
+  // print('Original array: $array');
+  final stopwatch = Stopwatch()..start();
   bubbleSort(array);
+  print('BubbleSort executed in ${stopwatch.elapsed}');
 }
 
 void bubbleSort(List<int> array) {
@@ -20,6 +22,6 @@ void bubbleSort(List<int> array) {
     }
     if (updated_changes == changes) break;
     updated_changes = changes;
-    print('Iteration N° ${iteration + 1}: $array with $changes changes');
+    // print('Iteration N° ${iteration + 1}: $array with $changes changes');
   }
 }

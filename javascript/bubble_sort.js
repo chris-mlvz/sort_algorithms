@@ -1,9 +1,13 @@
+const { performance } = require('perf_hooks');
 
 function main() {
-  let array = [...Array(10).keys()];
+  let array = [...Array(100000).keys()];
   array = array.sort(() => Math.random() - 0.5)
-  console.log(array);
+  // console.log(array);
+  let start = performance.now()
   bubbleSort(array);
+  let end = performance.now()
+  console.log((end - start)/1000)
 }
 
 function bubbleSort(array) {
@@ -21,7 +25,7 @@ function bubbleSort(array) {
     }
     if (updated_changes == changes) break;
     updated_changes = changes;
-    console.log(`Iteration N° ${iteration + 1}: ${array} with ${changes} changes`);
+    // console.log(`Iteration N° ${iteration + 1}: ${array} with ${changes} changes`);
   }
 }
 

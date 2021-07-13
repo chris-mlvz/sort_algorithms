@@ -2,10 +2,12 @@ import 'dart:math';
 
 // Selection Sort Algorithm
 void main(List<String> args) {
-  var array = List.generate(10, (index) => index);
+  var array = List.generate(100000, (index) => index);
   array.shuffle();
-  print('Original array: $array');
+  // print('Original array: $array');
+  final stopwatch = Stopwatch()..start();
   selectionSort(array);
+  print('Selection sort executed in ${stopwatch.elapsed}');
 }
 
 void selectionSort(List<int> array) {
@@ -27,7 +29,7 @@ void selectionSort(List<int> array) {
     array[minIndex] = temporal;
     // Counting the iterations and printing the array.
     iteration++;
-    print('Iteration N° $iteration: $array, Changed position: $i');
+    // print('Iteration N° $iteration: $array, Changed position: $i');
   }
 }
 

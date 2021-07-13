@@ -1,5 +1,5 @@
 import random
-
+import time
 
 def bubbleSort(array):
     n = len(array)
@@ -13,10 +13,13 @@ def bubbleSort(array):
         if updated_changes == changes:
             break
         updated_changes = changes
-        print(f'Iteration N° {iteration + 1}: {array} with {changes} changes')
+        # print(f'Iteration N° {iteration + 1}: {array} with {changes} changes')
 
 if __name__ == "__main__":
-    array = [i for i in range(10)]
+    array = [i for i in range(10000)]
     random.shuffle(array)
-    print(f'Original array: {array}')
+    # print(f'Original array: {array}')
+    start = time.time()
     bubbleSort(array)
+    end = time.time()
+    print(end - start)

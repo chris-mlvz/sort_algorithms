@@ -1,10 +1,14 @@
+const { performance } = require('perf_hooks');
 
 // Selection Sort Algorithm
 function main() {
-  let array = [...Array(10).keys()];
+  let array = [...Array(100000).keys()];
   array = array.sort(() => Math.random() - 0.5)
-  console.log(`Original array: ${array}`);
+  // console.log(`Original array: ${array}`);
+  let start = performance.now()
   selectionSort(array);
+  let end = performance.now()
+  console.log((end - start) / 1000)
 }
 
 function selectionSort(array) {
@@ -26,7 +30,7 @@ function selectionSort(array) {
     array[minIndex] = temporal;
     // Counting the iterations and printing the array.
     iteration++;
-    console.log(`Iteration N° ${iteration}: ${array}, Changed position: ${i}`);
+    // console.log(`Iteration N° ${iteration}: ${array}, Changed position: ${i}`);
   }
 }
 
